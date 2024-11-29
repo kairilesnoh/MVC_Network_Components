@@ -1,0 +1,14 @@
+﻿@using Nc.Pages.Controls
+@model Nc.Facade.Network.Components.SupportStructureViewModel
+
+@Html.EditItem(model => model.Location)
+@Html.EditItem(model => model.InstallationDate)
+@Html.EditItem(model => model.IsMaintenanceValid)
+@Html.EditItem(model => model.SerialNum)
+@Html.SelectItem(model => model.GeographicPointId, "GeographicPoint")
+@Html.SelectItem(model => model.FacilityId, "FacilityEntity")
+
+
+
+
+

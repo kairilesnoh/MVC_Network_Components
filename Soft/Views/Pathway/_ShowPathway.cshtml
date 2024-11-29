@@ -1,0 +1,63 @@
+﻿@using Nc.Facade.Network.Components
+@using Nc.Pages.Controls
+@model Nc.Facade.Network.Location.PathwayViewModel
+
+@Html.ShowItem(model => model.TotalDistance)
+@Html.ShowItem(model => model.Description)
+
+@{
+    var tableNames = new Dictionary<string, string> {
+    { "CableWirings", "Cable Wirings" },
+    { "FiberWirings", "Fiber Wirings" },
+    { "MicrowaveComponents", "Microwave Components" }
+};
+var tableCounts = new Dictionary<string, int> {
+    { "CableWirings", Model?.CableWirings?.Count ?? 0 },
+    { "FiberWirings", Model?.FiberWirings?.Count ?? 0 },
+    { "MicrowaveComponents", Model?.MicrowaveComponents?.Count ?? 0 }
+};
+}
+
+<select id="tableSelector" multiple="multiple">
+    @foreach (var tableName in tableNames) {
+    <option value="@tableName.Key">@tableName.Value (@tableCounts[tableName.Key])</option>
+}
+</select>
+
+@{
+    ShowTableProperties<TEntity> Create<TEntity>() {
+    var properties = new ShowTableProperties<TEntity>(ViewBag);
+    properties.MasterController = "pathway";
+    properties.MasterId = Model?.Id;
+    properties.IsEditable = false;
+    properties.ExcludedProperties = new string[] { "PathwayId" };
+    return properties;
+}
+
+var p1 = Create<CableWiringViewModel>();
+p1.Items = Model?.CableWirings ?? [];
+p1.Controller = "CableWiring";
+p1.Label = Html.LabelFor(model => model.CableWirings);
+
+var p2 = Create<FiberWiringViewModel>();
+p2.Items = Model?.FiberWirings ?? [];
+p2.Controller = "FiberWiring";
+p2.Label = Html.LabelFor(model => model.FiberWirings);
+
+var p3 = Create<MicrowaveComponentViewModel>();
+p3.Items = Model?.MicrowaveComponents ?? [];
+p3.Controller = "MicrowaveComponent";
+p3.Label = Html.LabelFor(model => model.MicrowaveComponents);
+}
+
+<div id="CableWirings" class="tableDiv" style="display:none;">
+    @Html.ShowTable(p1)
+</div>
+
+<div id="FiberWirings" class="tableDiv" style="display:none;">
+    @Html.ShowTable(p2)
+</div>
+
+<div id="MicrowaveComponents" class="tableDiv" style="display:none;">
+    @Html.ShowTable(p3)
+</div> 

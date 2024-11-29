@@ -1,0 +1,11 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Nc.Facade.Network.ComponentType.ConnectionComponentTypeViewModel
+
+@{
+    ViewData["Title"] = "Connection component type";
+ViewData["ItemId"] = Model.Id;
+Layout = "_Delete";
+}
+
+<partial name="_ShowConnectionComponentType" />
+

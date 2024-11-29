@@ -1,0 +1,11 @@
+﻿@using Nc.Pages.Controls
+@model Nc.Facade.Network.Components.SwitchViewModel
+
+@Html.EditItem(model => model.NumberOfPorts)
+@Html.EditItem(model => model.SerialNum)
+@Html.SelectItem(model => model.GeographicPointId, "GeographicPoint")
+@Html.SelectItem(model => model.FacilityId, "FacilityEntity")
+@Html.SelectItem(model => model.ServerTypeId, "ServerType")
+
+
+

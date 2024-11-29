@@ -1,0 +1,15 @@
+﻿@using Nc.Facade.Network.ComponentType
+@using Nc.Pages.Controls
+@model IEnumerable<Nc.Facade.Network.ComponentType.DeviceTypeViewModel>
+
+@{
+    ViewData["Title"] = "Device type";
+Layout = "_Index";
+var properties = new ShowTableProperties<DeviceTypeViewModel>(ViewBag);
+properties.Items = Model;
+}
+
+@Html.ShowTable(properties)
+
+
+

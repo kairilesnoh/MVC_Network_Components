@@ -1,0 +1,10 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Nc.Facade.Network.Components.FilterViewModel
+
+@{
+    ViewData["Title"] = "Filter";
+ViewData["ItemId"] = Model.Id;
+Layout = "_Edit";
+}
+
+<partial name="_EditFilter"/>

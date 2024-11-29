@@ -1,0 +1,16 @@
+﻿@using Nc.Facade.Network.Location
+@using Nc.Pages.Controls
+@model IEnumerable<PathwayViewModel>
+
+@{
+    ViewData["Title"] = "Pathway";
+Layout = "_Index";
+var properties = new ShowTableProperties<PathwayViewModel>(ViewBag);
+properties.ExcludedProperties = new string[] { "CableWirings", "FiberWirings", "MicrowaveComponents" };
+properties.Items = Model;
+}
+
+@Html.ShowTable(properties)
+
+
+

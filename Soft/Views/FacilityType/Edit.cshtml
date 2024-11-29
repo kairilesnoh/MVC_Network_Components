@@ -1,0 +1,10 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Nc.Facade.Network.Facility.FacilityTypeViewModel
+
+@{
+    ViewData["Title"] = "Facility type";
+ViewData["ItemId"] = Model.Id;
+Layout = "_Edit";
+}
+
+<partial name="_EditFacilityType" />

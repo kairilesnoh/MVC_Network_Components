@@ -1,0 +1,10 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Nc.Facade.Network.Components.CommunicationAppearanceViewModel
+
+@{
+    ViewData["Title"] = "Communication appearance";
+ViewData["ItemId"] = Model.Id;
+Layout = "_Edit";
+}
+
+<partial name="_EditCommunicationAppearance" />

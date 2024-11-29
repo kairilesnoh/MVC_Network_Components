@@ -1,0 +1,14 @@
+﻿@using Nc.Facade.Network.Components
+@using Nc.Pages.Controls
+@model IEnumerable<Nc.Facade.Network.Components.SwitchViewModel>
+
+@{
+    ViewData["Title"] = "Switch";
+Layout = "_Index";
+var properties = new ShowTableProperties<SwitchViewModel>(ViewBag);
+properties.Items = Model;
+}
+
+@Html.ShowTable(properties)
+
+

@@ -1,0 +1,11 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Nc.Facade.Network.Location.PathwayViewModel
+
+
+@{
+    ViewData["Title"] = "Pathway";
+ViewData["ItemId"] = Model.Id;
+Layout = "_Edit";
+}
+
+<partial name="_EditPathway"/>

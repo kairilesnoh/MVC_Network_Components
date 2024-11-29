@@ -1,0 +1,10 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Nc.Facade.Network.Components.SupportStructureViewModel
+
+@{
+    ViewData["Title"] = "Support Structure";
+ViewData["ItemId"] = Model.Id;
+Layout = "_Edit";
+}
+
+<partial name="_EditSupportStructure"/>

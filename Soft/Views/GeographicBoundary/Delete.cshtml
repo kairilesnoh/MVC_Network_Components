@@ -1,0 +1,13 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Nc.Facade.Network.Location.GeographicBoundaryViewModel
+
+
+@{
+
+    ViewData["Title"] = "Geographic Boundary";
+ViewData["ItemId"] = Model.Id;
+Layout = "_Delete";
+}
+
+<partial name="_ShowGeographicBoundary"/>
+

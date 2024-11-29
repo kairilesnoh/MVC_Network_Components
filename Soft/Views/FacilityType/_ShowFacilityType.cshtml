@@ -1,0 +1,24 @@
+﻿@using Nc.Facade.Network.Facility
+@using Nc.Pages.Controls
+@model Nc.Facade.Network.Facility.FacilityTypeViewModel
+
+@* @Html.ShowItem(model => model.Name)
+
+@Html.ShowItem(model => model.FacilityEntities, string.Empty)
+@Html.ShowTable(Model?.FacilityEntities ?? [], string.Empty, string.Empty, 1, false) *@
+
+@{
+    var p = new ShowTableProperties<FacilityEntityViewModel>(ViewBag);
+p.MasterController = "FacilityType";
+p.MasterId = Model?.Id;
+p.IsEditable = false;
+p.Items = Model?.FacilityEntities ?? [];
+p.Controller = "FacilityEntity";
+p.Label = Html.LabelFor(model => model.FacilityEntities);
+}
+
+@Html.ShowItem(model => model.Name)
+@Html.ShowTable(p)
+
+
+

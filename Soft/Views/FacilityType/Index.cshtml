@@ -1,0 +1,17 @@
+﻿@using Nc.Facade.Network.Facility
+@using Nc.Pages.Controls
+
+@model IEnumerable<Nc.Facade.Network.Facility.FacilityTypeViewModel>
+
+@{
+    ViewData["Title"] = "Facility type";
+Layout = "_Index";
+var properties = new ShowTableProperties<FacilityTypeViewModel>(ViewBag);
+properties.Items = Model;
+
+}
+
+@Html.ShowTable(properties)
+
+
+

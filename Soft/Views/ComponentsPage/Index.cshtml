@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Network Components";
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="display-4">@ViewData["Title"]</h2>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-lg-3">
+            <h6 class="fw-bold">Network Support Structure</h6>
+            <ul class="list-unstyled">
+                <li><a href="@Url.Action("Index", "SupportStructure")" class="text-decoration-none">Support Structure</a></li>
+            </ul>
+        </div>
+
+        <div class="col-lg-3">
+            <h6 class="fw-bold">Network Servers</h6>
+            <ul class="list-unstyled">
+                <li><a href="@Url.Action("Index", "Switch")" class="text-decoration-none">Switches</a></li>
+                <li><a href="@Url.Action("Index", "Router")" class="text-decoration-none">Routers</a></li>
+                <li><a href="@Url.Action("Index", "CommunicationAppearance")" class="text-decoration-none">Communication appearances</a></li>
+            </ul>
+        </div>
+
+        <div class="col-lg-3">
+            <h6 class="fw-bold">Devices</h6>
+            <ul class="list-unstyled">
+                <li><a href="@Url.Action("Index", "Filter")" class="text-decoration-none">Filters</a></li>
+                <li><a href="@Url.Action("Index", "Amplifier")" class="text-decoration-none">Amplifiers</a></li>
+            </ul>
+        </div>
+
+        <div class="col-lg-3">
+            <h6 class="fw-bold">Connection Components</h6>
+            <ul class="list-unstyled">
+                <li><a href="@Url.Action("Index", "FiberWiring")" class="text-decoration-none">Fiber Wiring</a></li>
+                <li><a href="@Url.Action("Index", "CableWiring")" class="text-decoration-none">Cable Wiring</a></li>
+                <li><a href="@Url.Action("Index", "MicrowaveComponent")" class="text-decoration-none">Microwave Components</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+﻿@using Nc.Facade.Network.ComponentType
+@using Nc.Facade.Network.Components
+@using Nc.Facade.Network.Location
+@using Nc.Pages.Controls
+@using static Nc.Pages.Controls.HtmlShowTable
+@model Nc.Facade.Network.ComponentType.ServerTypeViewModel
+
+@Html.ShowItem(model => model.Memory)
+@Html.ShowItem(model => model.Hostname)
+@Html.ShowItem(model => model.Description)
+
+@{
+    ShowTableProperties<TEntity> Create<TEntity>() {
+    var p = new ShowTableProperties<TEntity>(ViewBag);
+    p.MasterController = "servertypes";
+    p.MasterId = Model?.Id;
+    p.IsEditable = false;
+    p.ExcludedProperties = new string[] { "ServerTypeId" };
+    return p;
+}
+var p1  = Create<SwitchViewModel>();
+p1.Items = Model?.Switches ?? [];
+p1.Controller = "switch";
+p1.Label = Html.LabelFor(model => model.Switches);
+}
+
+@Html.ShowTable(p1)
+
+
+
+
+

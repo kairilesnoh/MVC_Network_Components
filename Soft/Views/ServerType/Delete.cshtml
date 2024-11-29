@@ -1,0 +1,13 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Nc.Facade.Network.ComponentType.ServerTypeViewModel
+
+
+@{
+
+    ViewData["Title"] = "Network server type";
+ViewData["ItemId"] = Model.Id;
+Layout = "_Delete";
+}
+
+<partial name="_ShowServerType" />
+

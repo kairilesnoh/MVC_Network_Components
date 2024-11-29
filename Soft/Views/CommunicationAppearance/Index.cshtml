@@ -1,0 +1,14 @@
+﻿@using Nc.Facade.Network.Components
+@using Nc.Pages.Controls
+@model IEnumerable<Nc.Facade.Network.Components.CommunicationAppearanceViewModel>
+
+@{
+    ViewData["Title"] = "Communication appearance";
+Layout = "_Index";
+var properties = new ShowTableProperties<CommunicationAppearanceViewModel>(ViewBag);
+properties.Items = Model;
+
+}
+
+@Html.ShowTable(properties)
+

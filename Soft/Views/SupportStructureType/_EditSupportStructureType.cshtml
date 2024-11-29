@@ -1,0 +1,8 @@
+﻿@using Nc.Pages.Controls
+@model Nc.Facade.Network.ComponentType.SupportStructureTypeViewModel
+
+@Html.EditItem(model => model.Name)
+@Html.SelectItem(model => model.Material, (SelectList)ViewData["Materials"]!)
+@Html.EditItem(model => model.Description)
+
+

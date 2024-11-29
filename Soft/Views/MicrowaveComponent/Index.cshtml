@@ -1,0 +1,15 @@
+﻿@using Nc.Facade.Network.Components
+@using Nc.Pages.Controls
+@model IEnumerable<Nc.Facade.Network.Components.MicrowaveComponentViewModel>
+
+@{
+    ViewData["Title"] = "Microwave Component";
+Layout = "_Index";
+var properties = new ShowTableProperties<MicrowaveComponentViewModel>(ViewBag);
+properties.Items = Model;
+}
+
+@Html.ShowTable(properties)
+
+
+

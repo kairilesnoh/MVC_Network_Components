@@ -1,0 +1,16 @@
+﻿@using Nc.Facade.Network.Location
+@using Nc.Pages.Controls
+@model IEnumerable<Nc.Facade.Network.Location.GeographicPointViewModel>
+
+@{
+    ViewData["Title"] = "Geographic Point";
+Layout = "_Index";
+var properties = new ShowTableProperties<GeographicPointViewModel>(ViewBag);
+properties.ExcludedProperties = new string[] { "SupportStructures", "Switches", "Routers", "CommunicationAppearances", "Filters", "Amplifiers" };
+properties.Items = Model;
+}
+
+@Html.ShowTable(properties)
+
+
+

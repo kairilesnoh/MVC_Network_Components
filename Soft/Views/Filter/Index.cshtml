@@ -1,0 +1,16 @@
+﻿@using Nc.Facade.Network.Components
+@using Nc.Pages.Controls
+@model IEnumerable<Nc.Facade.Network.Components.FilterViewModel>
+
+@{
+    ViewData["Title"] = "Filter";
+Layout = "_Index";
+var properties = new ShowTableProperties<FilterViewModel>(ViewBag);
+properties.Items = Model;
+
+}
+
+@Html.ShowTable(properties)
+
+
+

@@ -1,0 +1,145 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Soft</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Soft.styles.css" asp-append-version="true" />
+    <link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="https://raw.githack.com/ttskch/select2-bootstrap4-theme/master/dist/select2-bootstrap4.css" rel="stylesheet">
+</head>
+<body>
+    <style>
+        .navbar {
+            background-color: #282828; /* Dark grey background */
+            position: relative;
+            z-index: 3;
+            padding: 1.2rem 5.7rem; /* Reduced padding */
+            transition: height 0.3s ease-out, padding 0.3s ease-out;
+            height: 70px; /* Reduced height */
+        }
+
+            .navbar .navbar-brand {
+                margin-left: -15px; /* Move the brand to the left */
+                color: #ffffff !important; /* White text */
+                font-family: Roboto, Helvetica Neue, Arial;
+            }
+
+            .navbar .nav-link {
+                color: #ffffff !important; /* White text */
+                font-family: Roboto, Helvetica Neue, Arial;
+                position: relative;
+                overflow: hidden; /* Add this line */
+            }
+
+                .navbar .nav-link::after {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    transform: scaleX(0);
+                    height: 2px;
+                    bottom: 0;
+                    left: 0;
+                    background-color: #ffffff; /* White underline */
+                    transform-origin: bottom left;
+                    transition: transform 0.3s ease-out;
+                }
+
+                .navbar .nav-link:hover::after {
+                    transform: scaleX(1);
+                    transform-origin: bottom left;
+                }
+
+        .dropdown-menu {
+            background-color: #282828; /* Same background color as navbar */
+        }
+
+        .dropdown-item {
+            color: rgb(111, 111, 111); /* Dark grey text */
+            transition: color 0.3s ease-out 0s; /* Transition effect */
+            background-color: #282828; /* Same background color as navbar */
+        }
+
+            .dropdown-item:hover {
+                color: #ffffff !important; /* White text on hover */
+                background-color: #282828 !important; /* Same background color as navbar on hover */
+            }
+
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="ComponentsPage" asp-action="Index">Network Components</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <span class="nav-link" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Facilities
+                            </span>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                             
+                                <a class="dropdown-item" asp-area="" asp-controller="FacilityType" asp-action="Index">Facility Type</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="FacilityEntity" asp-action="Index">Facility Entity</a>
+
+
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <span class="nav-link" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Geographic Locations
+                            </span>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-area="" asp-controller="Pathway" asp-action="Index">Pathways</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="GeographicPoint" asp-action="Index">Geographic Points</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="GeographicBoundary" asp-action="Index">Geographic Boundaries</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <span class="nav-link" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Network Component Types
+                            </span>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-area="" asp-controller="ServerType" asp-action="Index">Server Type</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="SupportStructureType" asp-action="Index">Support Structure Type</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="ConnectionComponentType" asp-action="Index">Connection Component Type</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - Network Components - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/select2/js/select2.full.min.js"></script>
+    <script src="~/js/select2.js"></script>
+    <script src="~/js/tableNames.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

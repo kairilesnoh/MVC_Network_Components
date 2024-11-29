@@ -1,0 +1,9 @@
+﻿@using Nc.Pages.Controls
+@model Nc.Facade.Network.Components.AmplifierViewModel
+
+@Html.EditItem(model => model.Gain)
+@Html.EditItem(model => model.SerialNum)
+@Html.SelectItem(model => model.GeographicPointId, "GeographicPoint")
+@Html.SelectItem(model => model.FacilityId, "FacilityEntity")
+
+

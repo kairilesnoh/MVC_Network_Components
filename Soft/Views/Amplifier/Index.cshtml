@@ -1,0 +1,16 @@
+﻿@using Nc.Facade.Network.Components
+@using Nc.Pages.Controls
+@model IEnumerable<Nc.Facade.Network.Components.AmplifierViewModel>
+
+@{
+    ViewData["Title"] = "Amplifier";
+Layout = "_Index";
+var properties = new ShowTableProperties<AmplifierViewModel>(ViewBag);
+properties.Items = Model;
+
+}
+
+@Html.ShowTable(properties)
+
+
+

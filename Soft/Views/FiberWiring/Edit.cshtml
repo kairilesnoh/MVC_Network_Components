@@ -1,0 +1,10 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Nc.Facade.Network.Components.FiberWiringViewModel
+
+@{
+    ViewData["Title"] = "Fiber Wiring";
+ViewData["ItemId"] = Model.Id;
+Layout = "_Edit";
+}
+
+<partial name="_EditFiberWiring"/>

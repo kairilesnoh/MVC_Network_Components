@@ -1,0 +1,99 @@
+﻿@using Nc.Facade.Network.ComponentType
+@using Nc.Facade.Network.Components
+@using Nc.Pages.Controls
+@model Nc.Facade.Network.Location.GeographicPointViewModel
+
+@Html.ShowItem(model => model.Latitude)
+@Html.ShowItem(model => model.Longitude)
+@Html.ShowItem(model => model.Description)
+
+@{
+    var tableNames = new Dictionary<string, string> {
+    { "SupportStructures", "Support Structures" },
+    { "Switches", "Switches" },
+    { "Routers", "Routers" },
+    { "CommunicationAppearance", "Communication Appearances" },
+    { "Amplifier", "Amplifiers" },
+    { "Filter", "Filters" }
+};
+
+var tableCounts = new Dictionary<string, int> {
+    { "SupportStructures", Model?.SupportStructures?.Count ?? 0 },
+    { "Switches", Model?.Switches?.Count ?? 0 },
+    { "Routers", Model?.Routers?.Count ?? 0 },
+    { "CommunicationAppearance", Model?.CommunicationAppearances?.Count ?? 0 },
+    { "Amplifier", Model?.Amplifiers?.Count ?? 0 },
+    { "Filter", Model?.Filters?.Count ?? 0 }
+};
+}
+
+<select id="tableSelector" multiple="multiple">
+    @foreach (var tableName in tableNames) {
+    <option value="@tableName.Key">@tableName.Value (@tableCounts[tableName.Key])</option>
+}
+</select>
+
+@{
+    ShowTableProperties<TEntity> Create<TEntity>() {
+    var properties = new ShowTableProperties<TEntity>(ViewBag);
+    properties.MasterController = "GeographicPoint";
+    properties.MasterId = Model?.Id;
+    properties.IsEditable = false;
+    properties.ExcludedProperties = new string[] { "GeographicPointId" };
+    return properties;
+}
+var p1 = Create<SupportStructureViewModel>();
+p1.Items = Model?.SupportStructures ?? [];
+p1.Controller = "SupportStructure";
+p1.Label = Html.LabelFor(model => model.SupportStructures);
+
+var p2 = Create<SwitchViewModel>();
+p2.Items = Model?.Switches ?? [];
+p2.Controller = "Switch";
+p2.Label = Html.LabelFor(model => model.Switches);
+
+var p3 = Create<RouterViewModel>();
+p3.Items = Model?.Routers ?? [];
+p3.Controller = "Router";
+p3.Label = Html.LabelFor(model => model.Routers);
+
+var p4 = Create<CommunicationAppearanceViewModel>();
+p4.Items = Model?.CommunicationAppearances ?? [];
+p4.Controller = "CommunicationAppearance";
+p4.Label = Html.LabelFor(model => model.CommunicationAppearances);
+
+var p5 = Create<AmplifierViewModel>();
+p5.Items = Model?.Amplifiers ?? [];
+p5.Controller = "Amplifier";
+p5.Label = Html.LabelFor(model => model.Amplifiers);
+
+var p6 = Create<FilterViewModel>();
+p6.Items = Model?.Filters ?? [];
+p6.Controller = "Filter";
+p6.Label = Html.LabelFor(model => model.Filters);
+}
+
+<div id="SupportStructures" class="tableDiv" style="display:none;">
+    @Html.ShowTable(p1)
+</div>
+
+<div id="Switches" class="tableDiv" >
+    @Html.ShowTable(p2)
+</div>
+
+<div id="Routers" class="tableDiv" style="display:none;">
+    @Html.ShowTable(p3)
+</div>
+
+<div id="CommunicationAppearance" class="tableDiv" style="display:none;">
+    @Html.ShowTable(p4)
+</div>
+
+<div id="Amplifier" class="tableDiv" style="display:none;">
+    @Html.ShowTable(p5)
+</div>
+
+<div id="Filter" class="tableDiv" style="display:none;">
+    @Html.ShowTable(p6)
+</div>
+

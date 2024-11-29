@@ -1,0 +1,9 @@
+﻿@using Nc.Pages.Controls
+@model Nc.Facade.Network.Components.FilterViewModel
+
+@Html.EditItem(model => model.FilterType)
+@Html.EditItem(model => model.SerialNum)
+@Html.SelectItem(model => model.GeographicPointId, "GeographicPoint")
+@Html.SelectItem(model => model.FacilityId, "FacilityEntity")
+
+

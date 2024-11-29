@@ -1,0 +1,16 @@
+﻿@using Nc.Facade.Network.Components
+@using Nc.Pages.Controls
+@model IEnumerable<Nc.Facade.Network.Components.CableWiringViewModel>
+
+@{
+    ViewData["Title"] = "Cable Wiring";
+Layout = "_Index";
+var properties = new ShowTableProperties<CableWiringViewModel>(ViewBag);
+properties.Items = Model;
+
+}
+
+@Html.ShowTable(properties)
+
+
+

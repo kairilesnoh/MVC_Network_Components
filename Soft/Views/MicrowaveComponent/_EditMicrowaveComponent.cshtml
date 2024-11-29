@@ -1,0 +1,13 @@
+﻿@using Nc.Pages.Controls
+@model Nc.Facade.Network.Components.MicrowaveComponentViewModel
+
+
+@Html.EditItem(model => model.Frequency)
+@Html.EditItem(model => model.PowerOutput)
+@Html.EditItem(model => model.SerialNum)
+@Html.SelectItem(model => model.PathwayId, "Pathway")
+@Html.SelectItem(model => model.FacilityId, "FacilityEntity")
+
+
+
+

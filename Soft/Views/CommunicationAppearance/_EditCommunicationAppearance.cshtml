@@ -1,0 +1,11 @@
+﻿@using Nc.Pages.Controls
+@model Nc.Facade.Network.Components.CommunicationAppearanceViewModel
+
+@Html.EditItem(model => model.IpAddress)
+@Html.EditItem(model => model.Type)
+@Html.EditItem(model => model.SerialNum)
+@Html.SelectItem(model => model.GeographicPointId, "GeographicPoint")
+@Html.SelectItem(model => model.FacilityId, "FacilityEntity")
+
+
+

@@ -1,0 +1,14 @@
+﻿@using Nc.Facade.Network.Components
+@using Nc.Pages.Controls
+@model IEnumerable<Nc.Facade.Network.Components.RouterViewModel>
+
+@{
+    ViewData["Title"] = "Router";
+Layout = "_Index";
+var properties = new ShowTableProperties<RouterViewModel>(ViewBag);
+properties.Items = Model;
+}
+
+@Html.ShowTable(properties)
+
+

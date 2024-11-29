@@ -1,0 +1,16 @@
+﻿@using Nc.Facade.Network.Location
+@using Nc.Pages.Controls
+@model IEnumerable<Nc.Facade.Network.Location.GeographicBoundaryViewModel>
+
+@{
+    ViewData["Title"] = "Geographic Boundary";
+Layout = "_Index";
+var properties = new ShowTableProperties<GeographicBoundaryViewModel>(ViewBag);
+properties.Items = Model;
+
+}
+
+@Html.ShowTable(properties)
+
+
+

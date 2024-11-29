@@ -1,0 +1,12 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Nc.Facade.Network.ComponentType.DeviceTypeViewModel
+
+@{
+
+    ViewData["Title"] = "Device type";
+ViewData["ItemId"] = Model.Id;
+Layout = "_Delete";
+}
+
+<partial name="_ShowDeviceType" />
+
